@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ru_ufal/view/cadastrar_alimentos/cadastrar_alimentos_page.dart';
 
 import '../drawer/custom_drawer.dart';
 import '../home/home_page.dart';
@@ -12,7 +13,7 @@ class CustomPageView extends StatelessWidget {
       physics: NeverScrollableScrollPhysics(),
       children: [
         Scaffold(
-          body: HomePage(pageController: pageController),
+          body: CadastrarAlimentoPage(),
           drawer: CustomDrawer(pageController),
         ),
       ],
