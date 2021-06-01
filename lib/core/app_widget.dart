@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ru_ufal/view/custom_page_view/custom_page_view.dart';
 import 'package:ru_ufal/view/home/home_page.dart';
 
 class AppWidget extends StatelessWidget {
@@ -8,7 +9,7 @@ class AppWidget extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "RU Ufal",
       // theme: ThemeData(primarySwatch: Colors.blue),
-      home: HomePage(),
+      home: CustomPageView(),
     );
   }
 }

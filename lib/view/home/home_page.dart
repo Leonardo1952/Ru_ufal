@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+
 import 'package:ru_ufal/core/app_colors.dart';
 import 'package:ru_ufal/view/drawer/custom_drawer.dart';
 
 import '../drawer/custom_drawer.dart';
 
 class HomePage extends StatelessWidget {
-  PageController pageController = PageController();
+  final PageController pageController;
+  const HomePage({
+    Key? key,
+    required this.pageController,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
