@@ -15,25 +15,23 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size deviceSize = MediaQuery.of(context).size;
-    return Scaffold(
-      body: Container(
-        width: deviceSize.width,
-        height: deviceSize.height,
-        child: Row(
-          children: [
-            Container(
-              // height: 100,
-              // width: 100,
-              // color: Colors.blue,
-              child: CustomDrawer(pageController),
-            ),
-            Container(
-              height: 100,
-              width: 100,
-              color: Colors.blue,
-            ),
-          ],
-        ),
+    return Container(
+      width: deviceSize.width,
+      height: deviceSize.height,
+      child: Row(
+        children: [
+          // Container(
+          //   // height: 100,
+          //   // width: 100,
+          //   // color: Colors.blue,
+          //   child: CustomDrawer(pageController),
+          // ),
+          Container(
+            height: 100,
+            width: 100,
+            color: Colors.blue,
+          ),
+        ],
       ),
     );
   }
