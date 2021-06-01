@@ -6,7 +6,7 @@ class AppTranslate {
 
   AppTranslate(this.context);
 
-  String text(String screenKey, String key) {
-    return AppLocalizations.of(context).translate(screenKey, key);
+  String? text(String screenKey, String key) {
+    return AppLocalizations.of(context)!.translate(screenKey, key);
   }
 }

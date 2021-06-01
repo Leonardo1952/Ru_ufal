@@ -9,7 +9,7 @@ class AppLocalizations {
 
   AppLocalizations(this.locale);
 
-  Map<String, Map> _localizationsStrings;
+  late Map<String, Map> _localizationsStrings;
 
   //Metodo para carregar os arquivos
   Future<bool> load() async {
@@ -24,12 +24,12 @@ class AppLocalizations {
   }
 
   //Metodo para realizar a tradução
-  String translate(String screenKey, String key) {
-    return _localizationsStrings[screenKey][key];
+  String? translate(String screenKey, String key) {
+    return _localizationsStrings[screenKey]![key];
   }
 
   //
-  static AppLocalizations of(BuildContext context) {
+  static AppLocalizations? of(BuildContext context) {
     return Localizations.of<AppLocalizations>(context, AppLocalizations);
   }
 

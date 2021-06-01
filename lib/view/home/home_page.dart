@@ -2,49 +2,34 @@ import 'package:flutter/material.dart';
 import 'package:ru_ufal/core/app_colors.dart';
 import 'package:ru_ufal/view/drawer/custom_drawer.dart';
 
+import '../drawer/custom_drawer.dart';
+
 class HomePage extends StatelessWidget {
+  PageController pageController = PageController();
+
   @override
   Widget build(BuildContext context) {
-    var largura = MediaQuery.of(context).size.width;
-    var altura = MediaQuery.of(context).size.height;
+    Size deviceSize = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Restaurante Universitário"),
-      ),
-      body: Center(
-          child: Container(
-        height: altura,
-        width: largura,
-        color: Colors.white,
-        child: Column(
+      body: Container(
+        width: deviceSize.width,
+        height: deviceSize.height,
+        child: Row(
           children: [
-            Row(
-              children: [
-                Container(
-                  height: 100,
-                  width: 100,
-                  color: Colors.blue,
-                ),
-                Container(
-                  height: 100,
-                  width: 100,
-                  color: Colors.blue,
-                ),
-              ],
+            Container(
+              // height: 100,
+              // width: 100,
+              // color: Colors.blue,
+              child: CustomDrawer(pageController),
             ),
-            Row(
-              children: [
-                Container(height: 100, width: 100, color: Colors.blue),
-                Container(
-                  height: 100,
-                  width: 100,
-                  color: Colors.blue,
-                ),
-              ],
-            )
+            Container(
+              height: 100,
+              width: 100,
+              color: Colors.blue,
+            ),
           ],
         ),
-      )),
+      ),
     );
   }
 }
