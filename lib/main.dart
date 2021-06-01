@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ru_ufal/view/home/home_page.dart';
+import 'package:ru_ufal/core/app_widget.dart';
 
 void main() {
-  runApp(HomePage());
+  runApp(AppWidget());
 }
