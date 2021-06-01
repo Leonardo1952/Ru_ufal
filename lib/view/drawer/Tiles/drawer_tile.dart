@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:ru_ufal/core/theme/colors/app_colors.dart';
+import 'package:ru_ufal/core/app_colors.dart';
 /*
 //Criação dos Tiles do drawer de forma Orientada a Objetos
 class DrawerTile extends StatelessWidget {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ru_ufal/core/theme/colors/app_colors.dart';
+import 'package:ru_ufal/core/app_colors.dart';
 import 'package:ru_ufal/view/drawer/custom_drawer.dart';
 
 class HomePage extends StatelessWidget {

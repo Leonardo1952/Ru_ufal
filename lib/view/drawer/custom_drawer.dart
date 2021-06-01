@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ru_ufal/core/app_vectores.dart';
+import 'package:ru_ufal/core/app_vectors.dart';
 import 'package:ru_ufal/core/internacionalization/app_translate.dart';
-import 'package:ru_ufal/core/theme/colors/app_colors.dart';
+import 'package:ru_ufal/core/app_colors.dart';
 import 'package:ru_ufal/view/drawer/Tiles/drawer_tile.dart';
 /*
 class CustomDrawer extends StatelessWidget {
