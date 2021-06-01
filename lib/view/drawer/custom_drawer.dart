@@ -46,12 +46,6 @@ class CustomDrawer extends StatelessWidget {
               controller: this.pageController,
               page: 0,
             ),
-            // DrawerTile(
-            //   AppVectors.garfo,
-            //   "Cadastrar Alimento",
-            //   pageController,
-            //   0,
-            // ),
           ],
         ),
       ),
