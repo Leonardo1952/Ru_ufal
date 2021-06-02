@@ -15,6 +15,10 @@ dependencies:
   provider: ^5.0.0
   flutter_svg: ^0.22.0
   http: ^0.13.3
+  qr_flutter: ^4.0.0
+  pdf: ^3.3.0
+  advance_pdf_viewer: ^2.0.0
+  share_extend: "^2.0.0"
 
 dev_dependencies:
   flutter_test:
