@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:ru_ufal/view/home/home_page.dart';
 
-class QrCodePage extends StatelessWidget {
+class QrCodeView extends StatelessWidget {
   final String valorQrCode;
+  final PageController pageController;
 
-  const QrCodePage({Key? key, required this.valorQrCode}) : super(key: key);
+  const QrCodeView(
+      {Key? key, required this.valorQrCode, required this.pageController})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,8 +36,9 @@ class QrCodePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               TextButton(
-                  onPressed: () => Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => HomePage())),
+                  onPressed: () {
+                    pageController.jumpToPage(0);
+                  },
                   child: Text('Voltar a tela iniciar')),
             ],
           )

@@ -47,9 +47,16 @@ class CustomDrawer extends StatelessWidget {
                       width: deviceSize.width * 0.1,
                       // height: deviceSize.height * 0.05,
                     ),
-                    Text(
-                      'RU UFAL',
-                      style: TextStyle(color: AppColors.white),
+                    Padding(
+                      padding: EdgeInsets.only(top: deviceSize.height * 0.02),
+                      child: Text(
+                        'RU UFAL',
+                        style: TextStyle(
+                          color: AppColors.white,
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -65,23 +72,29 @@ class CustomDrawer extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     DrawerTile(
+                      imageUrl: AppVectors.appleFilledIcon,
+                      text: "Home",
+                      controller: this.pageController,
+                      page: 0,
+                    ),
+                    DrawerTile(
                       imageUrl: AppVectors.forkOutlineIcon,
                       text: "Cadastrar Alimento",
                       controller: this.pageController,
-                      page: 0,
+                      page: 1,
                     ),
                     DrawerTile(
                       imageUrl: AppVectors.menuFilledIcon,
                       text: "Cadastrar cardápio",
                       controller: this.pageController,
-                      page: 1,
-                    ),
-                    DrawerTile(
-                      imageUrl: AppVectors.menuListFilledIcon,
-                      text: "Listar menu",
-                      controller: this.pageController,
                       page: 2,
                     ),
+                    // DrawerTile(
+                    //   imageUrl: AppVectors.menuListFilledIcon,
+                    //   text: "Listar menu",
+                    //   controller: this.pageController,
+                    //   page: 3,
+                    // ),
                   ],
                 );
               },

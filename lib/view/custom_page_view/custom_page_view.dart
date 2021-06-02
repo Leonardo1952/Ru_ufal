@@ -14,6 +14,11 @@ class CustomPageView extends StatelessWidget {
       physics: NeverScrollableScrollPhysics(),
       children: [
         Scaffold(
+          body: HomePage(
+            pageController: pageController,
+          ),
+        ),
+        Scaffold(
           body: AddFoodView(
             pageController: pageController,
           ),

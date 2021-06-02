@@ -15,7 +15,7 @@ class AppWidget extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "RU Ufal",
       theme: ThemeData(fontFamily: "Rajdhani"),
-      home: HomePage(),
+      home: CustomPageView(),
     );
   }
 }
