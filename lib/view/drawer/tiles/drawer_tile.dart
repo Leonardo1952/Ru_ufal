@@ -18,48 +18,49 @@ class DrawerTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: Colors.transparent,
+    Size deviceSize = MediaQuery.of(context).size;
+
+    double currentPage = controller.page ?? 0.0;
+
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        vertical: deviceSize.height * 0.02,
+      ),
       child: InkWell(
         onTap: () {
-          Navigator.of(context).pop(); //Fechar o drawer
+          // Navigator.of(context).pop(); //Fechar o drawer
           controller.jumpToPage(page); //Mudar de pagina ao clicar
         },
-        child: Container(
-          height: 60.0,
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: deviceSize.width * 0.01,
+          ),
           child: Row(
             children: <Widget>[
               SvgPicture.asset(
                 imageUrl,
-                height: 34.0,
-                color: (controller.hasClients
-                        ? true
-                        : controller.page!.round() == page)
-                    ? AppColors.defaultRed
+                height: deviceSize.height * 0.05,
+                color: controller.hasClients
+                    ? (currentPage.round() == page
+                        ? AppColors.defaultRed
+                        : AppColors.white)
                     : AppColors.white,
               ),
-
-              Container(
-                height: 32.0,
-                color: (controller.hasClients
-                        ? true
-                        : controller.page!.round() == page)
-                    ? AppColors.defaultRed
-                    : AppColors.white,
-              ),
-
               SizedBox(
-                width: 32.0,
+                width: deviceSize.width * 0.01,
               ), //Espaço entre icone e texto
-              Text(
-                text,
-                style: TextStyle(
-                  fontSize: 16.0,
-                  color: (controller.hasClients
-                          ? true
-                          : controller.page!.round() == page)
-                      ? AppColors.defaultRed
-                      : AppColors.white,
+              Expanded(
+                child: Text(
+                  text,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                    color: controller.hasClients
+                        ? (currentPage.round() == page
+                            ? AppColors.defaultRed
+                            : AppColors.white)
+                        : AppColors.white,
+                  ),
                 ),
               )
             ],

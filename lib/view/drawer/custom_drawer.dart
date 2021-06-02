@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:ru_ufal/core/app_images.dart';
 import 'package:ru_ufal/core/app_vectors.dart';
@@ -9,6 +11,17 @@ class CustomDrawer extends StatelessWidget {
 
   CustomDrawer(this.pageController);
 
+  Future<bool> initializeController() {
+    Completer<bool> completer = new Completer<bool>();
+
+    /// Callback called after widget has been fully built
+    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+      completer.complete(true);
+    });
+
+    return completer.future;
+  } //
+
   @override
   Widget build(BuildContext context) {
     Size deviceSize = MediaQuery.of(context).size;
@@ -19,12 +32,14 @@ class CustomDrawer extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Center(
-            child: InkWell(
-              onTap: () {
-                // Navigator.of(context).pop();
-              },
-              child: Container(
-                // color: Colors.transparent,
+            child: Padding(
+              padding: EdgeInsets.only(
+                top: deviceSize.height * 0.05,
+              ),
+              child: InkWell(
+                onTap: () {
+                  // Navigator.of(context).pop();
+                },
                 child: Column(
                   children: [
                     Image.asset(
@@ -42,29 +57,34 @@ class CustomDrawer extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                DrawerTile(
-                  imageUrl: AppVectors.forkOutlineIcon,
-                  text: "Cadastrar Alimento",
-                  controller: this.pageController,
-                  page: 0,
-                ),
-                DrawerTile(
-                  imageUrl: AppVectors.menuFilledIcon,
-                  text: "Cadastrar cardápio",
-                  controller: this.pageController,
-                  page: 1,
-                ),
-                DrawerTile(
-                  imageUrl: AppVectors.menuListFilledIcon,
-                  text: "Listar menu",
-                  controller: this.pageController,
-                  page: 2,
-                ),
-              ],
+            child: FutureBuilder(
+              future: this.initializeController(),
+              builder: (context, snapshot) {
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    DrawerTile(
+                      imageUrl: AppVectors.forkOutlineIcon,
+                      text: "Cadastrar Alimento",
+                      controller: this.pageController,
+                      page: 0,
+                    ),
+                    DrawerTile(
+                      imageUrl: AppVectors.menuFilledIcon,
+                      text: "Cadastrar cardápio",
+                      controller: this.pageController,
+                      page: 1,
+                    ),
+                    DrawerTile(
+                      imageUrl: AppVectors.menuListFilledIcon,
+                      text: "Listar menu",
+                      controller: this.pageController,
+                      page: 2,
+                    ),
+                  ],
+                );
+              },
             ),
           ),
         ],

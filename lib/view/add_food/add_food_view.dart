@@ -1,191 +1,230 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:ru_ufal/core/app_colors.dart';
+import 'package:ru_ufal/view/drawer/custom_drawer.dart';
 
-class AddFoodView extends StatelessWidget {
+class AddFoodView extends StatefulWidget {
   final PageController pageController;
-  const AddFoodView({Key? key, required this.pageController}) : super(key: key);
+  AddFoodView({Key? key, required this.pageController}) : super(key: key);
+
+  @override
+  _AddFoodViewState createState() => _AddFoodViewState();
+}
+
+class _AddFoodViewState extends State<AddFoodView> {
+  final List<String> categories = [
+    "Comida",
+    "Bebida",
+    "Carne",
+    "Salada",
+    "Sobremesa",
+    "Fruta",
+  ];
+
+  int indexCategorySelected = 0;
 
   @override
   Widget build(BuildContext context) {
     Size deviceSize = MediaQuery.of(context).size;
-    return CustomScrollView(
-      slivers: [
-        SliverList(
-          delegate: SliverChildListDelegate(
-            <Widget>[
-              Column(
+    return Row(
+      children: [
+        CustomDrawer(widget.pageController),
+        SizedBox(width: deviceSize.width * 0.05),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
                 children: [
                   Container(
-                    width: 100,
+                    width: 5,
                     height: 50,
                     color: Colors.red,
                   ),
                   Text(
                     "Cadastrar Alimento",
                     style: const TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 50),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 50,
+                    ),
                   ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(left: 400), //Reajustar essa tela
-                    child: Container(
-                      width: deviceSize.width,
-                      height: deviceSize.height / 1.3,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                ],
+              ),
+              SizedBox(height: deviceSize.height * 0.05),
+              Expanded(
+                child: Container(
+                  width: deviceSize.width * 0.7,
+                  // height: deviceSize.height / 1.3,
+                  decoration: BoxDecoration(border: Border.all()),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: deviceSize.width * 0.03,
+                    vertical: deviceSize.height * 0.05,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
                         children: [
-                          Container(
-                            decoration: BoxDecoration(border: Border.all()),
-                            height: deviceSize.height / 1.65,
-                            width: deviceSize.width / (3 / 2),
-                            child: Row(
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      margin: const EdgeInsets.only(
-                                          left: 30, top: 10),
-                                      child: Text('Categoria'),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Categoria'),
+                              Row(
+                                children: [
+                                  Container(
+                                    width: deviceSize.width / 4,
+                                    child: DropdownButton(
+                                      isExpanded: true,
+                                      value: categories[indexCategorySelected],
+                                      onChanged: (String? v) {
+                                        if (v != null) {
+                                          setState(() {
+                                            indexCategorySelected =
+                                                categories.indexOf(v);
+                                          });
+                                        }
+                                      },
+                                      items: categories
+                                          .map((String category) =>
+                                              DropdownMenuItem(
+                                                child: Text(category),
+                                                value: category,
+                                                onTap: () {
+                                                  indexCategorySelected =
+                                                      categories
+                                                          .indexOf(category);
+                                                },
+                                              ))
+                                          .toList(),
                                     ),
-                                    Row(
-                                      children: [
-                                        Container(
-                                          margin:
-                                              const EdgeInsets.only(left: 30),
-                                          width: deviceSize.width / 4,
-                                          child: DropdownButton(
-                                            items: [],
-                                          ),
-                                        ),
-                                        IconButton(
-                                            icon: Icon(Icons.info_outline),
-                                            onPressed: () {}),
-                                      ],
-                                    ),
-                                    Divider(
-                                      color: Colors.transparent,
-                                    ),
-                                    Container(
-                                      margin: const EdgeInsets.only(left: 30),
-                                      child: Text('Título'),
-                                    ),
-                                    Row(
-                                      children: [
-                                        Container(
-                                          margin:
-                                              const EdgeInsets.only(left: 30),
-                                          width: deviceSize.width / 4,
-                                          child: TextField(
-                                            decoration: InputDecoration(
-                                              border: OutlineInputBorder(),
-                                            ),
-                                          ),
-                                        ),
-                                        IconButton(
-                                            icon: Icon(Icons.info_outline),
-                                            onPressed: () {}),
-                                      ],
-                                    ),
-                                    Divider(
-                                      color: Colors.transparent,
-                                    ),
-                                    Container(
-                                      margin: const EdgeInsets.only(left: 30),
-                                      child: Text('Imagem'),
-                                    ),
-                                    Row(
-                                      children: [
-                                        Container(
-                                          margin:
-                                              const EdgeInsets.only(left: 30),
-                                          width: deviceSize.width / 4,
-                                          child: TextField(
-                                            decoration: InputDecoration(
-                                              border: OutlineInputBorder(),
-                                            ),
-                                          ),
-                                        ),
-                                        IconButton(
-                                            icon: Icon(Icons.info_outline),
-                                            onPressed: () {}),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                Column(
-                                  children: [
-                                    Container(
-                                      margin: const EdgeInsets.only(top: 10),
-                                      width: deviceSize.width / 4,
-                                      child: Column(
-                                        children: [
-                                          Text('Vegetariano'),
-                                          TextField(
-                                            decoration: InputDecoration(
-                                              border: OutlineInputBorder(),
-                                            ),
-                                          ),
-                                        ],
+                                  ),
+                                  IconButton(
+                                      icon: Icon(Icons.info_outline),
+                                      onPressed: () {}),
+                                ],
+                              ),
+                              Text('Título'),
+                              Row(
+                                children: [
+                                  Container(
+                                    width: deviceSize.width / 4,
+                                    child: TextField(
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(),
                                       ),
                                     ),
-                                    Divider(
-                                      color: Colors.transparent,
+                                  ),
+                                  IconButton(
+                                      icon: Icon(Icons.info_outline),
+                                      onPressed: () {}),
+                                ],
+                              ),
+                              Divider(
+                                color: Colors.transparent,
+                              ),
+                              Text('Imagem'),
+                              Row(
+                                children: [
+                                  Container(
+                                    width: deviceSize.width / 4,
+                                    child: TextField(
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(),
+                                      ),
                                     ),
-                                    Text('Vegano'),
-                                    Row(
-                                      children: [
-                                        Container(
-                                          margin:
-                                              const EdgeInsets.only(left: 50),
-                                          width: deviceSize.width / 4,
-                                          child: TextField(
-                                            decoration: InputDecoration(
-                                              border: OutlineInputBorder(),
-                                            ),
-                                          ),
-                                        ),
-                                        IconButton(
-                                            icon: Icon(Icons.info_outline),
-                                            onPressed: () {}),
-                                      ],
+                                  ),
+                                  IconButton(
+                                      icon: Icon(Icons.info_outline),
+                                      onPressed: () {}),
+                                ],
+                              ),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Container(
+                                width: deviceSize.width / 4,
+                                child: Column(
+                                  children: [
+                                    Text('Vegetariano'),
+                                    TextField(
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(),
+                                      ),
                                     ),
                                   ],
                                 ),
-                              ],
-                            ),
+                              ),
+                              Divider(
+                                color: Colors.transparent,
+                              ),
+                              Text('Vegano'),
+                              Row(
+                                children: [
+                                  Container(
+                                    width: deviceSize.width / 4,
+                                    child: TextField(
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(),
+                                      ),
+                                    ),
+                                  ),
+                                  IconButton(
+                                      icon: Icon(Icons.info_outline),
+                                      onPressed: () {}),
+                                ],
+                              ),
+                            ],
                           ),
                         ],
                       ),
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.all(10),
-                        width: 250,
-                        height: 50,
-                        color: Color(0xFF828383),
-                        child: TextButton(
-                            onPressed: () {},
-                            child: Text('Cancelar',
-                                style: TextStyle(color: Colors.white))),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.all(50),
-                        width: 250,
-                        height: 50,
-                        color: Color(0xFF0095DA),
-                        child: TextButton(
-                            onPressed: () {},
-                            child: Text('Salvar',
-                                style: TextStyle(color: Colors.white))),
-                      ),
                     ],
-                  )
-                ],
+                  ),
+                ),
               ),
+              SizedBox(height: deviceSize.height * 0.05),
+              Padding(
+                padding: EdgeInsets.only(
+                  bottom: deviceSize.height * 0.05,
+                  right: deviceSize.width * 0.07,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Container(
+                      width: deviceSize.width * 0.15,
+                      height: deviceSize.height * 0.07,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: AppColors.grey,
+                      ),
+                      child: TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          'Cancelar',
+                          style: TextStyle(color: AppColors.darkGrey),
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: deviceSize.width * 0.02),
+                    Container(
+                      width: deviceSize.width * 0.15,
+                      height: deviceSize.height * 0.07,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: AppColors.defaultBlue,
+                      ),
+                      child: TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          'Salvar',
+                          style: TextStyle(color: AppColors.white),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
         ),
