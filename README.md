@@ -1,16 +1,9 @@
-# ru_ufal
+# RU Ufal
 
-A new Flutter project.
+Este projeto foi construido através do hackthon realizado no Aracomp Online 2021, 
+e tem como seu objeto a criação de uma aplicação para o restaurante local.
 
-## Getting Started
+Esta parte da aplicação foi construida usando o flutter web
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+A mesma conta com sistema de inscrição de alimentos, cadastro de menus e geração de QrCode,
+para pagamento das refeições através de modo virtual ulizando a aplicação mobile.
