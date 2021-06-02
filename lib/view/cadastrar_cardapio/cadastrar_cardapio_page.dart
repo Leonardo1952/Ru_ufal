@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
-class CadastrarAlimentoPage extends StatelessWidget {
-  const CadastrarAlimentoPage({Key? key}) : super(key: key);
+class CadastrarCardapioPage extends StatelessWidget {
+  const CadastrarCardapioPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class CadastrarAlimentoPage extends StatelessWidget {
                 Column(
                   children: [
                     Text(
-                      "Cadastrar Alimento",
+                      "Cadastrar Cardápio",
                       style: const TextStyle(
                           fontWeight: FontWeight.bold, fontSize: 50),
                     ),
@@ -42,7 +43,7 @@ class CadastrarAlimentoPage extends StatelessWidget {
                                       Container(
                                         margin: const EdgeInsets.only(
                                             left: 30, top: 10),
-                                        child: Text('Categoria'),
+                                        child: Text('Refeição'),
                                       ),
                                       Row(
                                         children: [
@@ -64,7 +65,7 @@ class CadastrarAlimentoPage extends StatelessWidget {
                                       ),
                                       Container(
                                         margin: const EdgeInsets.only(left: 30),
-                                        child: Text('Título'),
+                                        child: Text('Alimento'),
                                       ),
                                       Row(
                                         children: [
@@ -86,9 +87,10 @@ class CadastrarAlimentoPage extends StatelessWidget {
                                       Divider(
                                         color: Colors.transparent,
                                       ),
+                                      //Trabalhando com data
                                       Container(
                                         margin: const EdgeInsets.only(left: 30),
-                                        child: Text('Imagem'),
+                                        child: Text('Data'),
                                       ),
                                       Row(
                                         children: [
@@ -103,8 +105,20 @@ class CadastrarAlimentoPage extends StatelessWidget {
                                             ),
                                           ),
                                           IconButton(
-                                              icon: Icon(Icons.info_outline),
-                                              onPressed: () {}),
+                                              icon: Icon(Icons.date_range),
+                                              onPressed: () async {
+                                                final data =
+                                                    await showDatePicker(
+                                                        context: context,
+                                                        initialDate:
+                                                            DateTime.now(),
+                                                        firstDate:
+                                                            DateTime(2000),
+                                                        lastDate:
+                                                            DateTime(2030),
+                                                        locale:
+                                                            Locale("pt", "BR"));
+                                              }),
                                         ],
                                       ),
                                     ],
@@ -112,11 +126,12 @@ class CadastrarAlimentoPage extends StatelessWidget {
                                   Column(
                                     children: [
                                       Container(
-                                        margin: const EdgeInsets.only(top: 10),
+                                        margin: const EdgeInsets.only(
+                                            left: 50, top: 10),
                                         width: deviceSize.width / 4,
                                         child: Column(
                                           children: [
-                                            Text('Vegetariano'),
+                                            Text('Bebida'),
                                             TextField(
                                               decoration: InputDecoration(
                                                 border: OutlineInputBorder(),
@@ -127,24 +142,6 @@ class CadastrarAlimentoPage extends StatelessWidget {
                                       ),
                                       Divider(
                                         color: Colors.transparent,
-                                      ),
-                                      Text('Vegano'),
-                                      Row(
-                                        children: [
-                                          Container(
-                                            margin:
-                                                const EdgeInsets.only(left: 50),
-                                            width: deviceSize.width / 4,
-                                            child: TextField(
-                                              decoration: InputDecoration(
-                                                border: OutlineInputBorder(),
-                                              ),
-                                            ),
-                                          ),
-                                          IconButton(
-                                              icon: Icon(Icons.info_outline),
-                                              onPressed: () {}),
-                                        ],
                                       ),
                                     ],
                                   ),

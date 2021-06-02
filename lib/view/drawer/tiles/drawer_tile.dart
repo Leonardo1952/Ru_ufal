@@ -22,7 +22,7 @@ class DrawerTile extends StatelessWidget {
       color: Colors.transparent,
       child: InkWell(
         onTap: () {
-          Navigator.of(context).pop();
+          Navigator.of(context).pop(); //Fechar o drawer
           controller.jumpToPage(page); //Mudar de pagina ao clicar
         },
         child: Container(

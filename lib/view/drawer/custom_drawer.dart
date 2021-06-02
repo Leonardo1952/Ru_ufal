@@ -24,13 +24,21 @@ class CustomDrawer extends StatelessWidget {
                       onTap: () {
                         Navigator.of(context).pop();
                       },
-                      child: Container(
-                        height: 90,
-                        color: AppColors.primaryAzul,
-                        child: Image.asset(
-                          AppVectors.logo,
-                          height: 90,
-                        ),
+                      child: Column(
+                        children: [
+                          Container(
+                            height: 90,
+                            color: AppColors.primaryAzul,
+                            child: Image.asset(
+                              AppVectors.logo,
+                              height: 90,
+                            ),
+                          ),
+                          Text(
+                            'RU UFAL',
+                            style: TextStyle(color: AppColors.branco),
+                          )
+                        ],
                       ),
                     ),
                   ),
@@ -42,6 +50,18 @@ class CustomDrawer extends StatelessWidget {
               text: "Cadastrar Alimento",
               controller: this.pageController,
               page: 0,
+            ),
+            DrawerTile(
+              imageUrl: AppVectors.menu,
+              text: "Cadastrar cardápio",
+              controller: this.pageController,
+              page: 1,
+            ),
+            DrawerTile(
+              imageUrl: AppVectors.menu,
+              text: "Listar menu",
+              controller: this.pageController,
+              page: 2,
             ),
           ],
         ),
