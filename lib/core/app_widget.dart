@@ -14,6 +14,7 @@ class AppWidget extends StatelessWidget {
       supportedLocales: [Locale("pt", "BR")],
       debugShowCheckedModeBanner: false,
       title: "RU Ufal",
+      theme: ThemeData(fontFamily: "Rajdhani"),
       home: CustomPageView(),
     );
   }

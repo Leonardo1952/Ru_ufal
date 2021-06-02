@@ -12,7 +12,9 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   cupertino_icons: ^1.0.3
+  provider: ^5.0.0
   flutter_svg: ^0.22.0
+  http: ^0.13.3
 
 dev_dependencies:
   flutter_test:
@@ -23,9 +25,21 @@ flutter:
 
   assets:
     - assets/
-    - assets/imgs/
-    - i18n/
-
+    - assets/images/
+    - assets/images/png/
+  
+  fonts:
+    - family: Rajdhani
+      fonts:
+        - asset: assets/fonts/Rajdhani-Regular.ttf
+        - asset: assets/fonts/Rajdhani-Light.ttf
+        - asset: assets/fonts/Rajdhani-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Rajdhani-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Rajdhani-SemiBold.ttf
+          weight: 600
+    
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

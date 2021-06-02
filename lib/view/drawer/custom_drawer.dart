@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ru_ufal/core/app_images.dart';
 import 'package:ru_ufal/core/app_vectors.dart';
 import 'package:ru_ufal/core/app_colors.dart';
 import 'package:ru_ufal/view/drawer/tiles/drawer_tile.dart';
@@ -12,7 +13,7 @@ class CustomDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       child: Container(
-        color: AppColors.primaryAzul,
+        color: AppColors.defaultBlue,
         child: ListView(
           padding: EdgeInsets.only(left: 32.0, top: 10.0),
           children: <Widget>[
@@ -28,15 +29,15 @@ class CustomDrawer extends StatelessWidget {
                         children: [
                           Container(
                             height: 90,
-                            color: AppColors.primaryAzul,
+                            color: AppColors.defaultBlue,
                             child: Image.asset(
-                              AppVectors.logo,
+                              AppImages.logo,
                               height: 90,
                             ),
                           ),
                           Text(
                             'RU UFAL',
-                            style: TextStyle(color: AppColors.branco),
+                            style: TextStyle(color: AppColors.white),
                           )
                         ],
                       ),
@@ -46,19 +47,19 @@ class CustomDrawer extends StatelessWidget {
               ),
             ),
             DrawerTile(
-              imageUrl: AppVectors.garfo,
+              imageUrl: AppVectors.forkOutlineIcon,
               text: "Cadastrar Alimento",
               controller: this.pageController,
               page: 0,
             ),
             DrawerTile(
-              imageUrl: AppVectors.menu,
+              imageUrl: AppVectors.menuFilledIcon,
               text: "Cadastrar cardápio",
               controller: this.pageController,
               page: 1,
             ),
             DrawerTile(
-              imageUrl: AppVectors.menu,
+              imageUrl: AppVectors.menuListFilledIcon,
               text: "Listar menu",
               controller: this.pageController,
               page: 2,

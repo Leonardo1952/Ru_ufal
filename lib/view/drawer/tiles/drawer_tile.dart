@@ -35,8 +35,8 @@ class DrawerTile extends StatelessWidget {
                 color: (controller.hasClients
                         ? true
                         : controller.page!.round() == page)
-                    ? AppColors.vermelho
-                    : AppColors.branco,
+                    ? AppColors.defaultRed
+                    : AppColors.white,
               ),
 
               Container(
@@ -44,8 +44,8 @@ class DrawerTile extends StatelessWidget {
                 color: (controller.hasClients
                         ? true
                         : controller.page!.round() == page)
-                    ? AppColors.vermelho
-                    : AppColors.branco,
+                    ? AppColors.defaultRed
+                    : AppColors.white,
               ),
 
               SizedBox(
@@ -58,8 +58,8 @@ class DrawerTile extends StatelessWidget {
                   color: (controller.hasClients
                           ? true
                           : controller.page!.round() == page)
-                      ? AppColors.vermelho
-                      : AppColors.branco,
+                      ? AppColors.defaultRed
+                      : AppColors.white,
                 ),
               )
             ],

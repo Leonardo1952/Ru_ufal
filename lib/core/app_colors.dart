@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static Color preto = Color(0xFF000000);
-  static Color branco = Color(0xFFFFFFFF);
-  static Color primaryAzul = Color(0xFF0095DA);
-  static Color vermelho = Color(0xFFFF0000);
+  static const Color black = Color(0xFF000000);
+  static const Color white = Color(0xFFFFFFFF);
+  static const Color defaultBlue = Color(0xFF0095DA);
+  static const Color defaultRed = Color(0xFFFF0000);
+  static const Color grey = Color(0xFFEBEBEB);
 }
