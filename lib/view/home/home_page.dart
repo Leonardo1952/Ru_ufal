@@ -15,11 +15,11 @@ class HomePage extends StatelessWidget {
         child: Row(
           children: [
             Container(
-              // height: 100,
-              // width: 100,
-              // color: Colors.blue,
-              child: Container(),
-            ),
+                // height: 100,
+                // width: 100,
+                // color: Colors.blue,
+                // child: CustomDrawer(),
+                ),
             Container(
               height: 100,
               width: 100,
